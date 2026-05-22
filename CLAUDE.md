@@ -55,7 +55,7 @@ GitNexus MCP rules are in the `<!-- gitnexus:start -->
 
 This project is indexed by GitNexus as **GitNexus** (4325 symbols, 10556 relationships, 300 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
 
-> If any GitNexus tool warns the index is stale, run `npx gitnexus analyze` in terminal first.
+> If any GitNexus tool warns the index is stale, run `node gitnexus/dist/cli/index.js analyze` in terminal first.
 
 ## Always Do
 
@@ -126,13 +126,13 @@ Before completing any code modification task, verify:
 After committing code changes, the GitNexus index becomes stale. Re-run analyze to update it:
 
 ```bash
-npx gitnexus analyze
+node gitnexus/dist/cli/index.js analyze
 ```
 
 If the index previously included embeddings, preserve them by adding `--embeddings`:
 
 ```bash
-npx gitnexus analyze --embeddings
+node gitnexus/dist/cli/index.js analyze --embeddings
 ```
 
 To check whether embeddings exist, inspect `.gitnexus/meta.json` — the `stats.embeddings` field shows the count (0 means no embeddings). **Running analyze without `--embeddings` will delete any previously generated embeddings.**
@@ -157,7 +157,7 @@ To check whether embeddings exist, inspect `.gitnexus/meta.json` — the `stats.
 
 This project is indexed by GitNexus as **GitNexus** (3298 symbols, 7954 relationships, 185 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
 
-> If any GitNexus tool warns the index is stale, run `npx gitnexus analyze` in terminal first.
+> If any GitNexus tool warns the index is stale, run `node gitnexus/dist/cli/index.js analyze` in terminal first.
 
 ## Always Do
 
@@ -228,13 +228,13 @@ Before completing any code modification task, verify:
 After committing code changes, the GitNexus index becomes stale. Re-run analyze to update it:
 
 ```bash
-npx gitnexus analyze
+node gitnexus/dist/cli/index.js analyze
 ```
 
 If the index previously included embeddings, preserve them by adding `--embeddings`:
 
 ```bash
-npx gitnexus analyze --embeddings
+node gitnexus/dist/cli/index.js analyze --embeddings
 ```
 
 To check whether embeddings exist, inspect `.gitnexus/meta.json` — the `stats.embeddings` field shows the count (0 means no embeddings). **Running analyze without `--embeddings` will delete any previously generated embeddings.**

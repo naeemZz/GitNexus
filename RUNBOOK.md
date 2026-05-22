@@ -14,7 +14,7 @@ npm install
 npm run build
 ```
 
-Use `npx gitnexus …` from any path after global/published install, or `node dist/cli/index.js …` when developing from `gitnexus/` with a local build.
+Use `node gitnexus/dist/cli/index.js …` from any path after global/published install, or `node dist/cli/index.js …` when developing from `gitnexus/` with a local build.
 
 ---
 
@@ -25,25 +25,25 @@ Use `npx gitnexus …` from any path after global/published install, or `node di
 **Fix (from the target repo root):**
 
 ```bash
-npx gitnexus analyze
+node gitnexus/dist/cli/index.js analyze
 ```
 
 **Force full rebuild** (same commit but suspect corruption or changed ignore rules):
 
 ```bash
-npx gitnexus analyze --force
+node gitnexus/dist/cli/index.js analyze --force
 ```
 
 **Check status:**
 
 ```bash
-npx gitnexus status
+node gitnexus/dist/cli/index.js status
 ```
 
 **List what MCP knows about:**
 
 ```bash
-npx gitnexus list
+node gitnexus/dist/cli/index.js list
 ```
 
 ---
@@ -53,7 +53,7 @@ npx gitnexus list
 **First time with vectors** (slower, more disk/RAM):
 
 ```bash
-npx gitnexus analyze --embeddings
+node gitnexus/dist/cli/index.js analyze --embeddings
 ```
 
 **Important:** If you already had embeddings, **always** pass `--embeddings` on later analyzes, or they can be dropped. See `stats.embeddings` in `.gitnexus/meta.json` (0 means none).
@@ -70,7 +70,7 @@ npx gitnexus analyze --embeddings
 
 ```bash
 cd /path/to/repo
-npx gitnexus analyze
+node gitnexus/dist/cli/index.js analyze
 ```
 
 Restart the editor MCP session if needed. The server **refreshes the registry lazily**; new analyzes are picked up without necessarily reinstalling MCP.
@@ -84,22 +84,22 @@ Restart the editor MCP session if needed. The server **refreshes the registry la
 **Current repo only** (prompts for confirmation):
 
 ```bash
-npx gitnexus clean
+node gitnexus/dist/cli/index.js clean
 ```
 
 **Skip confirmation:**
 
 ```bash
-npx gitnexus clean --force
+node gitnexus/dist/cli/index.js clean --force
 ```
 
 **All registered repos:**
 
 ```bash
-npx gitnexus clean --all --force
+node gitnexus/dist/cli/index.js clean --all --force
 ```
 
-Then re-run `npx gitnexus analyze` (and `--embeddings` if you need vectors).
+Then re-run `node gitnexus/dist/cli/index.js analyze` (and `--embeddings` if you need vectors).
 
 ---
 
@@ -107,7 +107,7 @@ Then re-run `npx gitnexus analyze` (and `--embeddings` if you need vectors).
 
 ```bash
 cd gitnexus
-npx gitnexus serve
+node gitnexus/dist/cli/index.js serve
 # default http://127.0.0.1:4747 — see serve --help for port/host
 ```
 
@@ -121,10 +121,10 @@ Useful for debugging without an editor:
 
 ```bash
 cd gitnexus
-npx gitnexus query "authentication flow" --repo MyRepo
-npx gitnexus context SomeSymbol --repo MyRepo
-npx gitnexus impact SomeSymbol --direction upstream --repo MyRepo
-npx gitnexus cypher "MATCH (n) RETURN count(n) LIMIT 1" --repo MyRepo
+node gitnexus/dist/cli/index.js query "authentication flow" --repo MyRepo
+node gitnexus/dist/cli/index.js context SomeSymbol --repo MyRepo
+node gitnexus/dist/cli/index.js impact SomeSymbol --direction upstream --repo MyRepo
+node gitnexus/dist/cli/index.js cypher "MATCH (n) RETURN count(n) LIMIT 1" --repo MyRepo
 ```
 
 ---

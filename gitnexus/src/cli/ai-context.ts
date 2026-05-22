@@ -91,7 +91,7 @@ function generateGitNexusContent(
 
 This project is indexed by GitNexus as **${projectName}**${noStats ? '' : ` (${stats.nodes || 0} symbols, ${stats.edges || 0} relationships, ${stats.processes || 0} execution flows)`}. Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
 
-> If any GitNexus tool warns the index is stale, run \`npx gitnexus analyze\` in terminal first.
+> If any GitNexus tool warns the index is stale, run \`node gitnexus/dist/cli/index.js analyze\` in terminal first.
 
 ## Always Do
 
@@ -162,13 +162,13 @@ Before completing any code modification task, verify:
 After committing code changes, the GitNexus index becomes stale. Re-run analyze to update it:
 
 \`\`\`bash
-npx gitnexus analyze
+node gitnexus/dist/cli/index.js analyze
 \`\`\`
 
 If the index previously included embeddings, preserve them by adding \`--embeddings\`:
 
 \`\`\`bash
-npx gitnexus analyze --embeddings
+node gitnexus/dist/cli/index.js analyze --embeddings
 \`\`\`
 
 To check whether embeddings exist, inspect \`.gitnexus/meta.json\` — the \`stats.embeddings\` field shows the count (0 means no embeddings). **Running analyze without \`--embeddings\` will delete any previously generated embeddings.**
@@ -179,7 +179,7 @@ ${
   groupNames && groupNames.length > 0
     ? `## Cross-Repo Groups
 
-This repository is listed under GitNexus **group(s): ${groupNames.join(', ')}** (see \`~/.gitnexus/groups/\`). For blast radius across repository boundaries, use MCP tools \`group_impact\`, \`group_sync\`, \`group_query\`, \`group_contracts\`, \`group_status\`, and \`group_list\`. From the terminal: \`npx gitnexus group list\`, \`npx gitnexus group sync <name>\`, \`npx gitnexus group impact <name> --target <symbol> --repo <group-path>\`.
+This repository is listed under GitNexus **group(s): ${groupNames.join(', ')}** (see \`~/.gitnexus/groups/\`). For blast radius across repository boundaries, use MCP tools \`group_impact\`, \`group_sync\`, \`group_query\`, \`group_contracts\`, \`group_status\`, and \`group_list\`. From the terminal: \`node gitnexus/dist/cli/index.js group list\`, \`node gitnexus/dist/cli/index.js group sync <name>\`, \`node gitnexus/dist/cli/index.js group impact <name> --target <symbol> --repo <group-path>\`.
 
 `
     : ''

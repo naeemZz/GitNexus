@@ -21,7 +21,7 @@ description: Trace bugs through call chains using knowledge graph
 4. gitnexus_cypher({query: "MATCH path..."})                 → Custom traces if needed
 ```
 
-> If "Index is stale" → run `npx gitnexus analyze` in terminal.
+> If "Index is stale" → run `node gitnexus/dist/cli/index.js analyze` in terminal.
 
 ## Checklist
 

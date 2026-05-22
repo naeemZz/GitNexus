@@ -19,12 +19,12 @@ AI coding tools don't understand your codebase structure. They edit a function w
 
 ```bash
 # Index your repo (run from repo root)
-npx gitnexus analyze
+node gitnexus/dist/cli/index.js analyze
 ```
 
 That's it. This indexes the codebase, installs agent skills, registers Claude Code hooks, and creates `AGENTS.md` / `CLAUDE.md` context files — all in one command.
 
-To configure MCP for your editor, run `npx gitnexus setup` once — or set it up manually below.
+To configure MCP for your editor, run `node gitnexus/dist/cli/index.js setup` once — or set it up manually below.
 
 `gitnexus setup` auto-detects your editors and writes the correct global MCP config. You only need to run it once.
 
